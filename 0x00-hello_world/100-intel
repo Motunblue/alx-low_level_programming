@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S -fverbose-asm $PATH -o "${PATH:0:-2}.s"
+gcc -S -fverbose-asm $CFILE -o "${CFILE:0:-2}.s"
