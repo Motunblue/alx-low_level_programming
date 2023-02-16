@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc $CFILE -S -o "${CFILE:0:-2}.s"
