@@ -1,2 +1,2 @@
 #!/bin/bash
-tr ".c" ".o" <$CFILE | gcc $CFILE -c -o
+gcc $CFILE -c -o "${CFILE:0:-2}.o"
