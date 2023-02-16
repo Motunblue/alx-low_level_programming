@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc $CFILE -o "${CFILE:0:-2}"
+gcc $CFILE -o cisfun
