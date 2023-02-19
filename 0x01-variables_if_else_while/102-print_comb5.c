@@ -1,35 +1,28 @@
 #include <stdio.h>
 
 /**
- * main - Prints all possible combination of 3 digits
+ * main - Prints all possible combination of two 2 digit numbers
  *
  * Return: 0 if success
  */
 
 int main(void)
 {
-	int n, i, x, y;
-
-	for (n = 48; n <= 57; n++)
+	int x, y;
+	
+	for (x = 0; x < 100; x++)
 	{
-		for (i = 48; i <= 57; i++)
+		for (y = x + 1; y < 100; y++)
 		{
-			for (x = 48; x <= 57; x++)
-			{
-				for (y = x + 1; y <= 57; y++)
-				{
-					putchar(n);
-					putchar(x);
-					putchar(' ');
-					putchar(i);
-					putchar(y);
-					if (n + x + y + i != 227)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-				}
-			}
+			putchar(x / 10 + '0');
+			putchar(x % 10 + '0');
+			putchar(' ');
+			putchar(y / 10 + '0');
+			putchar(y % 10 + '0');
+			if (x == 98 && y == 99)
+				break;
+		putchar(',');
+		putchar(' ');
 		}
 	}
 	putchar('\n');
