@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * main - Prints some strings
@@ -12,7 +12,7 @@ int main(void)
 	char *i = "_putchar";
 
 	for (j = 0 ; j <= 7 ; j++)
-		putchar(i[j]);
-	putchar('\n');
+		_putchar(i[j]);
+	_putchar('\n');
 	return (0);
 }
