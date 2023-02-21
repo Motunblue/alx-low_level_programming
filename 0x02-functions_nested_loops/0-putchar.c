@@ -2,8 +2,6 @@
 
 /**
  * print_alphabet - Prints some strings
- *
- * Return: 0 if success
  */
 
 void print_alphabet(void)
@@ -14,5 +12,4 @@ void print_alphabet(void)
 	for (j = 0 ; j <= 7 ; j++)
 		_putchar(i[j]);
 	_putchar('\n');
-	return (0);
 }
