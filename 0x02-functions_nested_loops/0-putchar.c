@@ -3,7 +3,7 @@
 /**
  * main - Prints some strings
  *
- * Return: 1 if success
+ * Return: 0 if success
  */
 
 int main(void)
@@ -14,4 +14,5 @@ int main(void)
 	for (j = 0 ; j <= 7 ; j++)
 		putchar(i[j]);
 	putchar('\n');
+	return (0);
 }
