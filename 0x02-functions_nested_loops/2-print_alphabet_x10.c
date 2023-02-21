@@ -2,7 +2,7 @@
 
 
 /**
- * print_alphabet - prints a string of alphabet 10 times
+ * print_alphabet_x10 - prints a string of alphabet 10 times
  *
  * Return: void
  */
@@ -14,7 +14,7 @@ void print_alphabet_x10(void)
 	for (i = 0 ; i < 10 ; i++)
 	{
 		for (j = 0; j < 26; j++)
-			_putchar(i + 'a');
+			_putchar(j + 'a');
 		_putchar('\n');
 	}
 }
