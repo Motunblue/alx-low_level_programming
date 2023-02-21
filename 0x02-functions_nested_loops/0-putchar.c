@@ -1,6 +1,18 @@
 #include "main.h"
 
 /**
+ * main - calls print alphabet
+ *
+ * Return: 0 if success
+ */
+
+int main(void)
+{
+	print_alphabet(void);
+	return (0);
+}
+
+/**
  * print_alphabet - Prints some strings
  */
 
