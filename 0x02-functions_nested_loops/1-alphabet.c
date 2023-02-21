@@ -1,19 +1,24 @@
 #include <stdio.h>
 
+void print_alphabet(void);
+
 /**
  * main - Calls print alphabet
- * print_alphabet - prints a string of alphabet
  *
  * Return: 0 if success
  */
-
-void print_alphabet(void);
 
 int main(void)
 {
 	print_alphabet();
 	return (0);
 }
+
+/**
+ * print_alphabet - prints a string of alphabet
+ *
+ * Return: void
+ */
 
 void print_alphabet(void)
 {
