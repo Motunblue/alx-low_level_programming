@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * main - Prints some strings
+ * print_alphabet - Prints some strings
  *
  * Return: 0 if success
  */
 
-int main(void)
+void print_alphabet(void)
 {
 	int j;
 	char *i = "_putchar";
