@@ -21,10 +21,8 @@ int main(void)
 	{
 		c = a + b;
 		printf("%lu", c);
-		if (a < b)
-			a = c;
-		else
-			b = c;
+		a = b;
+		b = c;
 		if (i != 95)
 			printf(", ");
 		i++;
