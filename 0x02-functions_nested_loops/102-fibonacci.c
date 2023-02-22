@@ -9,18 +9,18 @@
 int main(void)
 {
 	int i;
-	unsigned long long int a, b, c;
+	unsigned long int a, b, c;
 
 	a = 1;
 	b = 2;
 	i = 0;
 
-	printf("%llu, %llu, ", a, b);
+	printf("%lu, %lu, ", a, b);
 
 	while (i < 48)
 	{
 		c = a + b;
-		printf("%llu", c);
+		printf("%lu", c);
 		if (a < b)
 			a = c;
 		else
