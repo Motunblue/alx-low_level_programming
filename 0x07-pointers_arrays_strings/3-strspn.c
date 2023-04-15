@@ -19,7 +19,6 @@ unsigned int _strspn(char *s, char *accept)
 		{
 			if (accept[j] == s[i])
 			{
-				printf("J is %c and i is %c\n", accept[j], s[i]);
 				same = 1;
 				break;
 			}
