@@ -2,8 +2,7 @@
 
 
 int check_palindrome(char*, char*);
-void _revstring(char*, int);
-void _strcpy(char*, char*, int);
+int _strlen(char *);
 
 /**
  * is_palindrome - Checks if a string is Palindrome
@@ -15,13 +14,9 @@ void _strcpy(char*, char*, int);
 int is_palindrome(char *s)
 {
 	int i = 0;
-	char rvs[200];
 
-	while (s[i] != '\0')
-		i++;
+	i = _strlen(s);
 
-	_strcpy(s, rvs, i);
-	_revstring(rvs, i);
 	return (check_palindrome(s, rvs));
 }
 
@@ -44,38 +39,15 @@ int check_palindrome(char *s, char *rvs)
 }
 
 /**
- * _revstring - Reverses a string
- * @c: String to reverse
- * @i: string length
+ * _strlen - Count a string
+ * @s: String to count
+ *
+ * Return: Length of the string
  */
 
-void _revstring(char *c, int i)
-
+int _strlen(char *s)
 {
-	char c2;
-	int j;
-
-	for (j = 0; j < i; j++)
-	{
-		i--;
-		c2 = c[j];
-		c[j] = c[i];
-		c[i] = c2;
-	}
-}
-
-/**
- * _strcpy - Copies a string
- * @src: Source
- * @dest: Destination
- * @i: Length of string
- */
-
-void _strcpy(char *src, char *dest, int i)
-{
-	int j;
-
-	for (j = 0; j < i; j++)
-		dest[j] = src[j];
-	dest[j] = '\0';
+	if (*s == '\0')
+		return (0);
+	return (1 + _strlen(s + 1));
 }
