@@ -15,11 +15,10 @@ void _strcpy(char*, char*, int);
 int is_palindrome(char *s)
 {
 	int i = 0;
+	char rvs[200];
 
 	while (s[i] != '\0')
 		i++;
-
-	char rvs[i];
 
 	_strcpy(s, rvs, i);
 	_revstring(rvs, i);
