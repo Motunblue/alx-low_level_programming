@@ -37,20 +37,25 @@ int main(int argc, char *argv[])
 /**
  * check_string - Checks if string can be converted to an interger
  * @s: string to check
- * Return: (0) is true and (1) is not.
+ * Return: (0) is success and (1) is not.
  */
 
 int check_string(char s[])
 {
-	int i, j;
+	int i, j, check = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = '0'; j <= '9'; j++)
 		{
 			if (s[i] == j)
-				return (0);
+				check = 1;
+			else
+				check = 0;
 		}
 	}
-	return (1);
+	if (check == 1)
+		return (0);
+	else
+		return (1);
 }
