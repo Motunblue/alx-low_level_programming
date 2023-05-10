@@ -42,20 +42,21 @@ int main(int argc, char *argv[])
 
 int check_string(char s[])
 {
-	int i, j, check = 0;
+	int i, j, check;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
+		check = 0;
 		for (j = '0'; j <= '9'; j++)
 		{
 			if (s[i] == j)
+			{
 				check = 1;
-			else
-				check = 0;
+				break;
+			}
 		}
+		if (check == 0)
+			return (1);
 	}
-	if (check == 1)
-		return (0);
-	else
-		return (1);
+	return (0);
 }
