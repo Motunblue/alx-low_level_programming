@@ -27,11 +27,8 @@ int count(char *s)
 
 char *str_concat(char *s1, char *s2)
 {
-	int c_s1, c_s2, i, j;
+	int c_s1, c_s2, i = 0, j;
 	char *cat;
-
-	if (s1 == NULL)
-		return (NULL);
 
 	c_s1 = count(s1);
 	c_s2 = count(s2);
@@ -39,10 +36,26 @@ char *str_concat(char *s1, char *s2)
 
 	if (cat == NULL)
 		return (NULL);
-	for (i = 0; i < c_s1; i++)
-		cat[i] = s1[i];
-	for (j = 0; j < c_s2; j++, i++)
-		cat[i] = s2[j];
+	if (s1 == NULL)
+	{
+		cat[i] = '\0';
+		return (cat);
+	}
+	else
+	{
+		for (; i < c_s1; i++)
+			cat[i] = s1[i];
+	}
+	if (s2 == NULL)
+	{
+		cat[i] = '\0';
+		return (cat);
+	}
+	else
+	{
+		for (j = 0; j < c_s2; j++, i++)
+			cat[i] = s2[j];
+	}
 	cat[i] = '\0';
 
 	return (cat);
