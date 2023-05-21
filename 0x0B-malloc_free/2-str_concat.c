@@ -12,6 +12,9 @@ int count(char *s)
 {
 	int counts = 0, i;
 
+	if (s == NULL)
+		return(0);
+
 	for (i = 0; s[i] != '\0'; i++)
 		counts++;
 	return (counts);
@@ -30,15 +33,17 @@ char *str_concat(char *s1, char *s2)
 	int c_s1, c_s2, i = 0, j;
 	char *cat;
 
+	c_s1 = count(s1);
+	c_s2 = count(s2);
+
 	if (s1 == NULL && s2 == NULL)
 	{
 		cat = malloc(1);
-		cat[0] == '\0';
+		cat[0] = '\0';
 		return (cat);
 	}
 	if (s1 == NULL)
 	{
-		c_s2 = count(s2);
 		cat = malloc(c_s2 + 1);
 		for (i = 0; i < c_s2; i++)
 			cat[i] = s2[i];
@@ -47,7 +52,6 @@ char *str_concat(char *s1, char *s2)
 	}
 	if (s2 == NULL)
 	{
-		c_s1 = count(s1);
 		cat = malloc(c_s1 + 1);
 		for (i = 0; i < c_s1; i++)
 			cat[i] = s1[i];
