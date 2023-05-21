@@ -30,32 +30,36 @@ char *str_concat(char *s1, char *s2)
 	int c_s1, c_s2, i = 0, j;
 	char *cat;
 
-	c_s1 = count(s1);
-	c_s2 = count(s2);
-	cat = malloc(c_s1 + c_s2 + 1);
-
-	if (cat == NULL)
-		return (NULL);
-	if (s1 == NULL)
+	if (s1 == NULL && s2 == NULL)
 	{
-		cat[i] = '\0';
+		cat = malloc(1);
+		cat[0] == '\0';
 		return (cat);
 	}
-	else
+	if (s1 == NULL)
 	{
-		for (; i < c_s1; i++)
-			cat[i] = s1[i];
+		c_s2 = count(s2);
+		cat = malloc(c_s2 + 1);
+		for (i = 0; i < c_s2; i++)
+			cat[i] = s2[i];
+		cat[i] = '\0';
+		return (cat);
 	}
 	if (s2 == NULL)
 	{
+		c_s1 = count(s1);
+		cat = malloc(c_s1 + 1);
+		for (i = 0; i < c_s1; i++)
+			cat[i] = s1[i];
 		cat[i] = '\0';
 		return (cat);
 	}
-	else
-	{
-		for (j = 0; j < c_s2; j++, i++)
-			cat[i] = s2[j];
-	}
+
+	cat = malloc(c_s1 + c_s2  + 1);
+	for (i = 0; i < c_s1; i++)
+		cat[i] = s1[i];
+	for (j = 0; j < c_s2; j++, i++)
+		cat[i] = s2[j];
 	cat[i] = '\0';
 
 	return (cat);
