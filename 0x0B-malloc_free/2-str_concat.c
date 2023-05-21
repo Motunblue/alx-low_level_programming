@@ -13,7 +13,7 @@ int count(char *s)
 	int counts = 0, i;
 
 	if (s == NULL)
-		return(0);
+		return (0);
 
 	for (i = 0; s[i] != '\0'; i++)
 		counts++;
@@ -60,6 +60,8 @@ char *str_concat(char *s1, char *s2)
 	}
 
 	cat = malloc(c_s1 + c_s2  + 1);
+	if (cat == NULL)
+		return (NULL);
 	for (i = 0; i < c_s1; i++)
 		cat[i] = s1[i];
 	for (j = 0; j < c_s2; j++, i++)
