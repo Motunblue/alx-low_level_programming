@@ -90,7 +90,7 @@ char **strtow(char *str)
 			return (NULL);
 		}
 		putstring(s[i++], size, (str + j));
-		j = j + size;
+		j = j + size - 1;
 	}
 	s[i] = NULL;
 
