@@ -41,17 +41,19 @@ void putstring(char *dest, int size, char *src)
 
 int word_count(char *s)
 {
-	int i, wc = 0;
+	int count = 0, in_word = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == ' ')
-			continue;
-		wc++;
-		for (; s[i] != ' '; i++)
-			;
+		if (s[i] != ' ' && !inword)
+		{
+			count++;
+			in_word = 1;
+		}
+		else if (s[i] == ' ')
+			in_word = 0;
 	}
-	return (wc);
+	return (count);
 }
 
 /**
