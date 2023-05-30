@@ -45,7 +45,7 @@ int word_count(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] != ' ' && !inword)
+		if (s[i] != ' ' && !in_word)
 		{
 			count++;
 			in_word = 1;
