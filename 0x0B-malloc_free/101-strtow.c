@@ -72,6 +72,8 @@ char **strtow(char *str)
 		return (NULL);
 
 	wc = word_count(str);
+	if (wc == 0)
+		return (NULL);
 	s = malloc(sizeof(char *) * (wc + 1));
 	if (s == NULL)
 		return (NULL);
