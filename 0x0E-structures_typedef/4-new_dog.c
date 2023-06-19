@@ -27,6 +27,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 			s->name[i] = name[i];
 		s->name[i] = '\0';
 	}
+	else
+	{
+		free(s);
+		return (NULL);
+	}
 	s->age = age;
 	size = 0;
 	if (owner != NULL)
@@ -37,6 +42,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 		for (i = 0; owner[i] != '\0'; i++)
 			s->owner[i] = owner[i];
 		s->owner[i] = '\0';
+	}
+	else
+	{
+		free(s->name);
+		free(s);
+		return (NULL);
 	}
 
 	return (s);
