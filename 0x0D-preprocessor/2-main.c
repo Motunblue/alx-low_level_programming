@@ -2,7 +2,7 @@
 
 /**
  * main - Prints the name of this filei
- *cReturn: (0) SUCCESS
+ * Return: (0) SUCCESS
  */
 
 int main(void)
