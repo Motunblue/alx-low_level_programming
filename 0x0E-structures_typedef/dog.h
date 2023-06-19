@@ -18,6 +18,23 @@ struct dog
 	char *owner;
 };
 
+/**
+ * struct dog_t - type for a dog
+ * @name: Dog name
+ * @age: Dog age
+ * @owner: Doge owner
+ *
+ * Description: This is a type that can hold all attributable
+ * character of a dog
+ */
+typedef struct dog_t
+{
+	char *name;
+	float age;
+	char *owner;
+};
+
+
 /* Prototype to initialize struct dog */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
