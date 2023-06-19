@@ -10,7 +10,6 @@ void print_dog(struct dog *d)
 {
 	if (d == NULL)
 	{
-		putchar('\0');
 		return;
 	}
 	if (d->name == NULL)
