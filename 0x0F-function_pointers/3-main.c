@@ -5,8 +5,10 @@
 /**
  * main - Performs an operation on 2 intergers
  * Operation can be Add, sub, mul, div, and mod only
- * @argc: Number of arguments to main 
- * argv: Elements int argurment
+ * @argc: Number of arguments to main
+ * @argv: Elements int argurment
+ *
+ * Return: 1 if success
  */
 
 int main(int argc, char *argv[])
