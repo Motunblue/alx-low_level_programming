@@ -3,7 +3,7 @@
 
 /**
  * print_numbers - Prints number followed by a new line
- * @seperator: string to be printed between numbers
+ * @separator: string to be printed between numbers
  * @n: numbers of integers passed in the function
  */
 
@@ -20,7 +20,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		if (separator != NULL && i != (n - 1))
 			printf("%s", separator);
 	}
-	va_end (list);
+	va_end(list);
 
 	printf("\n");
 }
