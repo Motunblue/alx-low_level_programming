@@ -21,7 +21,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	{
 		s = va_arg(list, char*);
 
-		if (s == NULL)
+		if (!s)
 			printf("(nill)");
 		else
 			printf("%s", s);
