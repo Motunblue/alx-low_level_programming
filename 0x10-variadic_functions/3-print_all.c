@@ -10,7 +10,7 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	int i = 0, flag = 1;
-	char *s = NULL;
+	char *s;
 
 	va_start(args, format);
 	while (format[i] != '\0' && format)
