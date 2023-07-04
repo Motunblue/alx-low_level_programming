@@ -4,31 +4,41 @@
 int _strlen(const char *s);
 
 /**
- * add_node - Adds a node at tye begginig of a list
- * @head: pointer to pointer to most head node
- * @str: string to add to node
+ * add_node_end - Addes a node at the end
+ * @char: data to add
+ * @head: head pointer
  * Return: head
  */
 
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *ptr;
+	list_t *ptr = NULL;
+	list_t *temp = NULL;
 
+	if (str == NULL)
+		return (NULL);
 	ptr = malloc(sizeof(list_t));
 	if (ptr == NULL)
 		return (NULL);
 	ptr->str = strdup(str);
 	if (ptr->str == NULL)
 	{
-		free (ptr);
+		free(ptr);
 		return (NULL);
 	}
 	ptr->len = _strlen(str);
-	ptr->next = *head;
-	*head = ptr;
+	ptr->next = NULL;
+	if (*head == NULL)
+	{
+		*head = ptr;
+		return (ptr);
+	}
+	temp = *head;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = ptr;
 	return (*head);
 }
-
 
 /**
  * _strlen - counts a string
