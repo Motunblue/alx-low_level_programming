@@ -5,7 +5,7 @@ int _strlen(const char *s);
 
 /**
  * add_node_end - Addes a node at the end
- * @char: data to add
+ * @str: data to add
  * @head: head pointer
  * Return: head
  */
