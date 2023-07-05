@@ -2,6 +2,7 @@
 
 /**
  * pop_listint - Deletes the head node of a list
+ * @head: Head pointer
  * Return: head node data
  */
 int pop_listint(listint_t **head)
@@ -18,6 +19,8 @@ int pop_listint(listint_t **head)
 		free(*head);
 		*head = tmp;
 	}
+	else
+		free(*head);
 
 	return (data);
 }
