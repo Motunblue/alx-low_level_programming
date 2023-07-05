@@ -9,6 +9,8 @@ void free_list(listint_t *h);
 void free_listint2(listint_t **head)
 {
 
+	if (!head)
+		return;
 	free_list(*head);
 	*head = NULL;
 }
