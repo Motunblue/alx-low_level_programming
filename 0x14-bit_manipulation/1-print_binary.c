@@ -26,5 +26,5 @@ void print_bin_rec(unsigned long int n)
 		return;
 
 	print_bin_rec(n >> 1);
-	putchar((n & 1) + '0');
+	_putchar((n & 1) + '0');
 }
