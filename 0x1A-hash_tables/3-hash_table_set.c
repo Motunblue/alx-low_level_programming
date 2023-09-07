@@ -1,0 +1,53 @@
+#include "hash_tables.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/**
+ * hash_table_set - adds an element to the hash table
+ * @ht: hash table
+ * @key: Key
+ * @value: value
+ * Return: 1 is successful and 0 otherwise
+ */
+
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+{
+	unsigned long int idx;
+	hash_node_t *new = NULL;
+
+	if (ht == NULL || key == NULL || value == NULL)
+		return (0);
+
+	if (key[0] == '\0' || value[0] == '\0')
+		return (0);
+
+	new = malloc(sizeof(hash_node_t));
+	if (new == NULL)
+		return (0);
+	new->key = strdup(key);
+	if (new->key == NULL)
+	{
+		free(new);
+		return (0);
+	}
+	new->value = strdup(value);
+	if (new->value == NULL)
+	{
+		free(new->key);
+		free(new);
+		return (0);
+	}
+	new->next = NULL;
+	/* Get hash value */
+	idx = key_index((const unsigned char *)key, ht->size);
+
+	if (ht->array[idx] == NULL)
+		ht->array[idx] = new;
+	else
+	{
+		new->next = ht->array[idx];
+		ht->array[idx] = new;
+	}
+	return (1);
+}
