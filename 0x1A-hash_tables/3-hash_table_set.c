@@ -10,18 +10,28 @@
  * @value: value
  * Return: 1 is successful and 0 otherwise
  */
-
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
-	hash_node_t *new = NULL;
+	hash_node_t *new = NULL, *tmp = NULL;
 
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
-
 	if (key[0] == '\0' || value[0] == '\0')
 		return (0);
 
+	idx = key_index((const unsigned char *)key, ht->size);
+	tmp = ht->array[idx];
+	while (tmp)
+	{
+		if (strcmp(tmp->key, key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = strdup(value);
+			return (0);
+		}
+		tmp = tmp->next;
+	}
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
@@ -38,16 +48,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new);
 		return (0);
 	}
-	new->next = NULL;
-	/* Get hash value */
-	idx = key_index((const unsigned char *)key, ht->size);
+	new->next = ht->array[idx];
+	ht->array[idx] = new;
 
-	if (ht->array[idx] == NULL)
-		ht->array[idx] = new;
-	else
-	{
-		new->next = ht->array[idx];
-		ht->array[idx] = new;
-	}
 	return (1);
 }
