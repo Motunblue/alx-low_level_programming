@@ -4,7 +4,6 @@
 /**
  * close_file - close a file
  * @fd: file descriptor of file to close
- * @file: file name
 */
 void close_file(int fd)
 {
@@ -50,7 +49,7 @@ int main(int argc, char *argv[])
 		w = write(file_to_fd, buff, r);
 		if (w == -1 || file_to_fd == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 		r = read(file_from_fd, buff, 1024);
