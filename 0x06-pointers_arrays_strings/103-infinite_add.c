@@ -2,7 +2,7 @@
 
 int count(char *s);
 int to_int(char *n, int pos);
-void write_to_buffer(char *result, char *r, int size);
+void rewrite_buffer(char *r, int size);
 
 /**
  * infinite_add - Adds 2 numbers
@@ -15,19 +15,13 @@ void write_to_buffer(char *result, char *r, int size);
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int max;
 	int count_n1, count_n2, i, j = 0;
 	int sum;
 	int rem = 0;
-	char result[size_r - 1];
 
 	count_n1 = count(n1);
 	count_n2 = count(n2);
 
-	if (count_n1 > count_n2)
-		max = count_n1;
-	else
-		max = count_n2;
 	for (i = 0; i < count_n1 || i < count_n2 || rem > 0;
 		count_n1--, count_n2--, j++)
 	{
@@ -35,9 +29,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		rem = sum / 10;
 		if ((j + 1) >= size_r)
 			return (0);
-		result[j] = sum % 10 + '0';
+		r[j] = sum % 10 + '0';
 	}
-	write_to_buffer(result, r, j);
+	rewrite_buffer(r, j);
+	r[j] = '\0';
 	return (r);
 }
 
@@ -70,16 +65,20 @@ int to_int(char *n, int pos)
 }
 
 /**
- * write_to_buffer - Write from a buffer to another in reverse order
- * @result: buffer from
- * @r: buffer to
+ * rewrite_buffer - reverser chars in a buffer
+ * @r: buffer to rewrite
  * @size: size of buffer from (result)
 */
-void write_to_buffer(char *result, char *r, int size)
+void rewrite_buffer(char *r, int size)
 {
 	int i, j;
+	char tmp;
 
-	for (i = 0, j = size - 1; i < size; i++, --j)
-		r[i] = result[j];
-	r[i] = '\0';
+	for (i = 0, j = size - 1; i < j; i++, --j)
+	{
+		tmp = r[i];
+		r[i] = r[j];
+		r[j] = tmp;
+	}
+
 }
