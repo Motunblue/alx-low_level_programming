@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 void print_pos(int pos, int i);
 void print_buff(char *buff, int size);
@@ -22,12 +23,13 @@ void print_buffer(char *b, int size)
 		if (i % 2 == 0)
 			_putchar(' ');
 		
-		print_int(b[i]);
+		print_pos(b[i], 2);
 		buff[j] = b[i];
-		if (i % 10 == 0)
+		if (i % 9 == 0 && i != 0)
 		{
-			j = 0;
+			_putchar(' ');
 			print_buff(buff, j);
+			j = -1;
 			_putchar('\n');
 		}
 		
@@ -37,7 +39,7 @@ void print_buffer(char *b, int size)
 void print_pos(int pos, int i)
 {
 	int p;
-	if (i < 0)
+	if (i <= 0)
 		return;
 	
 	if (pos <= 0)
@@ -62,16 +64,10 @@ void print_buff(char *buff, int size)
 	int i;
 
 	for (i = 0; i < size; i++)
-		_putchar(i);
+		_putchar(buff[i]);
 }
 
-void print_int(char c)
-{
-	if (c == 0)
-		return;
-	print_int(c / 10);
-	_putchar((c % 10) + '0');
-}
+
 int main(void)
 {
     char buffer[] = "This is a string!\0And this is the rest of the #buffer :)\1\2\3\4\5\6\7#cisfun\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x20\x21\x34\x56#pointersarefun #infernumisfun\n";
