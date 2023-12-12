@@ -15,7 +15,7 @@ void print_buffer(char *b, int size)
 
 	for (i = 0; i < size - 1; i++, j++)
 	{
-		if (i % 11 == 0 || i == 0)
+		if (i % 11 == 0)
 		{
 			print_pos(i, 6);
 			_putchar(':');
